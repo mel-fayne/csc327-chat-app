@@ -3,22 +3,25 @@ package com.example.chatapplication
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_log_in.*
 
 class LoginActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_log_in)
 
-        setContentView(R.layout.activity_login)
+        signin_button.setOnClickListener {
+            val email = email_editText.text.toString()
+            val password = password_editText.text.toString()
 
-        login_button_login.setOnClickListener {
-            val email = email_edittext_login.text.toString()
-            val password = password_edittext_login.text.toString()
+            Log.d("LoginActivity", "Email is: $email")
+            Log.d("LoginActivity", "Password: $password")
 
-            Log.d("Login", "Attempt login with email/pw: $email/***")
+            // Firebase Authentication to create a user with email and password
         }
 
-        back_to_register_textview.setOnClickListener{
+        signup_text.setOnClickListener{
             finish()
         }
     }
