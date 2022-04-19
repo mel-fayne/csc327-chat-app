@@ -75,26 +75,23 @@
         android:id="@+id/have_account_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="24dp"
         android:text="Already have an account?"
         android:textColor="@color/white"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/signin_text"
-        app:layout_constraintHorizontal_bias="0.683"
+        app:layout_constraintEnd_toStartOf="@+id/login_button"
         app:layout_constraintStart_toStartOf="@+id/signup_button"
         app:layout_constraintTop_toBottomOf="@+id/signup_button" />
 
-    <TextView
-        android:id="@+id/signin_text"
+    <Button
+        android:id="@+id/login_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="60dp"
-        android:text="Sign In"
-        android:textColor="@color/purple_700"
-        android:textSize="16sp"
-        android:textStyle="bold"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="20dp"
+        android:text="Login"
         app:layout_constraintEnd_toEndOf="@+id/signup_button"
         app:layout_constraintTop_toBottomOf="@+id/signup_button" />
 

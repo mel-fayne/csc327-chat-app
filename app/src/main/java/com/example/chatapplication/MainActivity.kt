@@ -18,14 +18,14 @@ class MainActivity : AppCompatActivity() {
 
         // created a virtual variables instead... to fix unresolved references  --- delete line if neccessary
         val signup_button = findViewById<Button>(R.id.signup_button)
-        val signin_text = findViewById<TextView>(R.id.signin_text)
+        val login_button = findViewById<TextView>(R.id.login_button)
 
         signup_button.setOnClickListener {
 
             perform_signup()
         }
 
-        signin_text.setOnClickListener {
+        login_button.setOnClickListener {
             Log.d("MainActivity", "...showing login activity")
             // launch the login activity
             val intent = Intent(this, LoginActivity::class.java)
@@ -56,13 +56,13 @@ class MainActivity : AppCompatActivity() {
         Log.d("MainActivity", "Password: $password_as_str")
 
         // Firebase Authentication to create a user with email and password
-        // createing a new user using email and password
+        // creating a new user using email and password
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email_as_str, password_as_str)
             // if user is done entering details...
             .addOnCompleteListener{
                 if(!it.isSuccessful) return@addOnCompleteListener
 
-                // else, if unsuccessful
+
                 Log.d("Main", "Successfully created a user using uid : ${it.result.user?.uid}") // the question feature was a suggestion from that red-bulb suggestion thing
             }
             .addOnFailureListener {
