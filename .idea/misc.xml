@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/kiarie404/AndroidStudioProjects/csc327-chat-app/app/src/main/res/drawable/rounded_button.xml" value="0.136" />
+        <entry key="..\:/Users/kiarie404/AndroidStudioProjects/csc327-chat-app/app/src/main/res/drawable/rounded_button_activity_login.xml" value="0.136" />
+        <entry key="..\:/Users/kiarie404/AndroidStudioProjects/csc327-chat-app/app/src/main/res/drawable/rounded_input_signup_page.xml" value="0.136" />
+        <entry key="..\:/Users/kiarie404/AndroidStudioProjects/csc327-chat-app/app/src/main/res/drawable/rounded_input_tab_login_or_signup_activity.xml" value="0.136" />
         <entry key="..\:/Users/kiarie404/AndroidStudioProjects/csc327-chat-app/app/src/main/res/layout/activity_log_in.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/kiarie404/AndroidStudioProjects/csc327-chat-app/app/src/main/res/layout/activity_main.xml" value="0.27291666666666664" />
         <entry key="app/src/main/res/layout/activity_log_in.xml" value="0.15579710144927536" />
