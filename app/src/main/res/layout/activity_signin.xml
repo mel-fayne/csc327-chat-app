@@ -7,8 +7,21 @@
     android:background="#0E86D4"
     tools:context=".LoginActivity">
 
+    <TextView
+        android:id="@+id/page_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:textColor="@color/purple_700"
+        android:textFontWeight="600"
+        android:textSize="22dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Sign into your account" />
+
     <EditText
-        android:id="@+id/email_editText"
+        android:id="@+id/email_txt"
         android:layout_width="0dp"
         android:layout_height="44dp"
         android:layout_marginStart="30dp"
@@ -27,7 +40,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/password_editText"
+        android:id="@+id/password_txt"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="30dp"
@@ -44,7 +57,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email_editText" />
+        app:layout_constraintTop_toBottomOf="@+id/email_txt" />
 
     <Button
         android:id="@+id/signin_button"
@@ -55,8 +68,8 @@
         android:textSize="18dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/password_editText"
-        app:layout_constraintStart_toStartOf="@+id/password_editText"
+        app:layout_constraintEnd_toEndOf="@+id/password_txt"
+        app:layout_constraintStart_toStartOf="@+id/password_txt"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.467" />
 
