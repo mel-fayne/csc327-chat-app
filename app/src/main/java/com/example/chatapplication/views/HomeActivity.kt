@@ -5,6 +5,7 @@ import FirebaseUtils.firebaseAuth
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.chatapplication.R
@@ -34,21 +35,6 @@ class HomeActivity : AppCompatActivity() {
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this)
         mAuth = FirebaseAuth.getInstance()
         mDbRef = FirebaseDatabase.getInstance().getReference()
-
-        val user = Firebase.auth.currentUser
-        user?.let {
-            val name = user.displayName
-            val email = user.email
-            val photoUrl = user.photoUrl
-
-            // Check if user's email is verified
-            val emailVerified = user.isEmailVerified
-
-            // The user's ID, unique to the Firebase project. Do NOT use this value to
-            // authenticate with your backend server, if you have one. Use
-            // FirebaseUser.getToken() instead.
-            val uid = user.uid
-        }
 
         userList = ArrayList()
         adapter = UserAdapter(this,userList)
