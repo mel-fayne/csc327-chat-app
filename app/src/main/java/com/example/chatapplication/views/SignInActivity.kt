@@ -1,18 +1,27 @@
 package com.example.chatapplication.views
 
-import Extensions.toast
-import FirebaseUtils.firebaseAuth
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.chatapplication.R
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_signin.*
 
 class SignInActivity : AppCompatActivity() {
     lateinit var signInEmail: String
     lateinit var signInPassword: String
     lateinit var signInInputsArray: Array<EditText>
+
+    private val firebaseAuth: FirebaseAuth = FirebaseAuth.getInstance()
+
+    // used to generate toast messages
+    private fun Activity.toast(msg: String){
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +35,16 @@ class SignInActivity : AppCompatActivity() {
 
         signin_button.setOnClickListener {
             signInUser()
+        }
+    }
+
+    // checking if user was already signed in
+    override fun onStart() {
+        super.onStart()
+        val user: FirebaseUser? = firebaseAuth.currentUser
+        user?.let {
+            startActivity(Intent(this, HomeActivity::class.java))
+            toast("Welcome back")
         }
     }
 

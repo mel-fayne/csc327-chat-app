@@ -1,31 +1,35 @@
 package com.example.chatapplication.views
 
-import Extensions.toast
-import FirebaseUtils.firebaseAuth
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.chatapplication.R
 import com.example.chatapplication.models.User
-import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_signup.*
 
-
 class SignUpActivity : AppCompatActivity() {
 
     lateinit var createAccountInputsArray: Array<EditText>
-
     lateinit var mDbRef: DatabaseReference
+
+    private val firebaseAuth: FirebaseAuth = FirebaseAuth.getInstance()
+
+    // used to generate toast messages
+    private fun Activity.toast(msg: String){
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
         createAccountInputsArray = arrayOf(email_txt, password_txt, confirmpassword_txt)
-
 
         signup_button.setOnClickListener {
 
@@ -39,22 +43,11 @@ class SignUpActivity : AppCompatActivity() {
         signin_text.setOnClickListener {
             startActivity(Intent(this, SignInActivity::class.java))
             toast("Sign into your account")
-            Log.d("SignUpActivity", "..signed in")
             finish()
         }
     }
 
-    /* check if there's a signed-in user*/
-
-    override fun onStart() {
-        super.onStart()
-        val user: FirebaseUser? = firebaseAuth.currentUser
-        user?.let {
-            startActivity(Intent(this, HomeActivity::class.java))
-            toast("Welcome back")
-        }
-    }
-
+    // validating user inputs before authenticating them
     private fun notEmpty(): Boolean = email_txt.text.toString().trim().isNotEmpty() &&
             password_txt.text.toString().trim().isNotEmpty() &&
             confirmpassword_txt.text.toString().trim().isNotEmpty()
@@ -100,6 +93,3 @@ class SignUpActivity : AppCompatActivity() {
     }
 
 }
-
-// authentication reference :
-// https://medium.com/@mutebibrian256/firebase-authentication-with-email-and-password-in-android-using-kotlin-5fbe61ee6252
