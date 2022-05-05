@@ -29,14 +29,16 @@
             android:id="@+id/messageBox"
             android:paddingLeft="10dp"
             android:background="@drawable/message_box_bg"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="15dp"
             android:layout_weight="85"
             android:hint="Write a message"/>
 
         <ImageView
+            android:id="@+id/send_btn"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/send"/>
+            android:layout_marginLeft="8dp"
+            android:src="@drawable/send" />
 
     </LinearLayout>
 

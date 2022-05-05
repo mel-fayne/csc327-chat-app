@@ -10,7 +10,7 @@
         <entry key="app/src/main/res/drawable/message_box_bg.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/round_btn.xml" value="0.185" />
         <entry key="app/src/main/res/layout-v28/activity_signup.xml" value="0.15353260869565216" />
-        <entry key="app/src/main/res/layout/activity_chat.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_chat.xml" value="0.2" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_log_in.xml" value="0.15579710144927536" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
