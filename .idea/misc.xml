@@ -7,12 +7,14 @@
         <entry key="..\:/Users/kiarie404/AndroidStudioProjects/csc327-chat-app/app/src/main/res/layout/activity_main.xml" value="0.27291666666666664" />
         <entry key="app/src/main/res/drawable/round_btn.xml" value="0.185" />
         <entry key="app/src/main/res/layout-v28/activity_signup.xml" value="0.15353260869565216" />
+        <entry key="app/src/main/res/layout/activity_chat.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_log_in.xml" value="0.15579710144927536" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_signin.xml" value="0.15353260869565216" />
         <entry key="app/src/main/res/layout/activity_signup.xml" value="0.13020833333333334" />
         <entry key="app/src/main/res/layout/userlayout.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/menu.xml" value="0.1" />
       </map>
     </option>
   </component>

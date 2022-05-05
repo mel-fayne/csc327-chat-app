@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.chatapplication.R
+import com.example.chatapplication.models.User
 
 class UserAdapter(val context: Context, val userList: ArrayList<User>):
     RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
@@ -19,7 +20,7 @@ class UserAdapter(val context: Context, val userList: ArrayList<User>):
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         val currentUser = userList[position]
 
-        holder.textname.text = currentUser.username
+        holder.textname.text = currentUser.name
     }
 
     override fun getItemCount(): Int {

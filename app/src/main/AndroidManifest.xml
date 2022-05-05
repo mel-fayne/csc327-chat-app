@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ChatApplication">
         <activity
+            android:name=".views.ChatActivity"
+            android:exported="false" />
+        <activity
             android:name=".views.HomeActivity"
             android:exported="false" />
         <activity
