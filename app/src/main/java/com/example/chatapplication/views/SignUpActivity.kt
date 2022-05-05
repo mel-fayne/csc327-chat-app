@@ -5,21 +5,35 @@ import FirebaseUtils.firebaseAuth
 import FirebaseUtils.firebaseUser
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.auth.FirebaseUser
 import com.example.chatapplication.R
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_signup.*
 
+
 class SignUpActivity : AppCompatActivity() {
+    lateinit var userid: String
     lateinit var userEmail: String
     lateinit var userPassword: String
     lateinit var createAccountInputsArray: Array<EditText>
+
+    //Creating member variables of FirebaseDatabase and DatabaseReference
+    private var mFirebaseDatabaseInstances: FirebaseDatabase?=null
+    private var mFirebaseDatabase: DatabaseReference?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
         createAccountInputsArray = arrayOf(email_txt, password_txt, confirmpassword_txt)
+
+        //Get instance of FirebaseDatabase
+        mFirebaseDatabaseInstances= FirebaseDatabase.getInstance()
+
         signup_button.setOnClickListener {
             signUp()
         }
@@ -27,6 +41,7 @@ class SignUpActivity : AppCompatActivity() {
         signin_text.setOnClickListener {
             startActivity(Intent(this, SignInActivity::class.java))
             toast("Sign into your account")
+            Log.d("SignUpActivity", "..signed in")
             finish()
         }
     }
@@ -38,7 +53,7 @@ class SignUpActivity : AppCompatActivity() {
         val user: FirebaseUser? = firebaseAuth.currentUser
         user?.let {
             startActivity(Intent(this, HomeActivity::class.java))
-            toast("welcome back")
+            toast("Welcome back")
         }
     }
 
@@ -75,9 +90,9 @@ class SignUpActivity : AppCompatActivity() {
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         toast("Created account successfully !")
-
                         sendEmailVerification()
                         startActivity(Intent(this, HomeActivity::class.java))
+                       // saveUser()
                         finish()
                     } else {
                         toast("Failed to Authenticate !")
@@ -99,6 +114,24 @@ class SignUpActivity : AppCompatActivity() {
             }
         }
     }
+
+    private fun saveUser(){
+        //Getting reference to ?users? node
+        mFirebaseDatabase=mFirebaseDatabaseInstances!!.getReference("users")
+        //Getting current user from FirebaseAuth
+        val user=FirebaseAuth.getInstance().currentUser
+        Log.d("SignUpActivity", "User : $user")
+        //add username, email to database
+        userid=user!!.uid ?: ""
+        userEmail=user.email ?: ""
+        //Creating a new user
+        val myUser=User(userid, username_txt.text.toString(), userEmail)
+        //Writing data into database using setValue() method
+        mFirebaseDatabase!!.child(userid).setValue(myUser)
+    }
 }
 
-// authentication reference : https://medium.com/@mutebibrian256/firebase-authentication-with-email-and-password-in-android-using-kotlin-5fbe61ee6252
+class User(val uid:String, val username:String, val email:String)
+
+// authentication reference :
+// https://medium.com/@mutebibrian256/firebase-authentication-with-email-and-password-in-android-using-kotlin-5fbe61ee6252
