@@ -82,7 +82,7 @@ class SignUpActivity : AppCompatActivity() {
             firebaseAuth.createUserWithEmailAndPassword(userEmail, userPassword)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                       // addUserToDatabase(userName, userEmail, firebaseAuth.currentUser?.uid!!)
+                        addUserToDatabase(userName, userEmail, firebaseAuth.currentUser?.uid!!)
                         toast("Created account successfully !")
                         startActivity(Intent(this, HomeActivity::class.java))
                         finish()
@@ -96,7 +96,7 @@ class SignUpActivity : AppCompatActivity() {
 
     private fun addUserToDatabase(userName: String, userEmail: String, uid: String) {
         mDbRef = FirebaseDatabase.getInstance().reference
-        mDbRef.child("user").child(uid).setValue(User(userName, userEmail, uid))
+        mDbRef.child("user").push().setValue(User(userName, userEmail, uid))
     }
 
 }
