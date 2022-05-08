@@ -1,5 +1,9 @@
 # csc327-chat-app
-A chat app in kotlin and created in Android Studio for CSC 327 Group Project
+The project was implemented using the language kotlin and in android studio. The database used was Firebase.
+
+# Demonstration
+
+
 
 References
 - [Authentication](https://medium.com/@mutebibrian256/firebase-authentication-with-email-and-password-in-android-using-kotlin-5fbe61ee6252)
